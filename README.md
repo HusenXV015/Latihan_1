@@ -1,8 +1,7 @@
-# FSJSP2S5-LC03 - Hacktiv Legend
 
 ## Ringkasan
 
-Urgent, kalian mendapatkan tugas untuk membuat aplikasi Full Stack Javascript client-server (Node.js, Express.js, Postgres, Sequelize, React.js) bernama `Hacktiv Legend` yaitu sebuah website yang dapat menampilkan daftar hero dan User dapat menyimpan favourite hero mereka dan mengupdatenya. Feature-feature aplikasi ini adalah:
+Urgent, kalian mendapatkan tugas untuk membuat aplikasi Full Stack Javascript client-server (Node.js, Express.js, Postgres, Sequelize, React.js) bernama `Legend` yaitu sebuah website yang dapat menampilkan daftar hero dan User dapat menyimpan favourite hero mereka dan mengupdatenya. Feature-feature aplikasi ini adalah:
 
 1. User dapat melakukan register
 2. User dapat melakukan login
@@ -12,7 +11,7 @@ Urgent, kalian mendapatkan tugas untuk membuat aplikasi Full Stack Javascript cl
 
 Aplikasi ini akan dibuat scratch dari awal oleh karena itu pastikan feature yang akan dibuat sesuai dengan yang diminta, kalian hanya diberikan `api_docs.md` sebagai panduan dalam membuat server dan client. Silahkan kalian buat feature by feature sesuai release yang disediakan `README.md` ini!
 
-Silahkan cek contoh demo aplikasi pada link berikut: [Hacktiv Legend](https://drive.google.com/file/d/18GQztoDsuUR0pdj0khLs22upg3xn80CX/view?usp=sharing)
+Silahkan cek contoh demo aplikasi pada link berikut: [Legend](https://drive.google.com/file/d/18GQztoDsuUR0pdj0khLs22upg3xn80CX/view?usp=sharing)
 
 ## Aturan & Kebijakan
 
@@ -64,7 +63,7 @@ Aplikasi ini memiliki 3 entitas atau table. Buatlah Model sesuai `api_docs.md` p
 
 Server ini sebagai backup ketika kalian mengalami kesulitan dalam pengerjaan server.
 
-- url: [Hacktiv Legend API](https://api.h8-legend.phase2.foxhub.space)
+- url: [Legend API](https://api.h8-legend.phase2.foxhub.space)
 - registered user :
 ```js
 user1 = { email : 'user1@mail.com', password: 'user1' }
