@@ -1,0 +1,44 @@
+[
+    {
+        "heroId": 1,
+        "userId": 1,
+        "role": "Fighter",
+        "power": 76
+    },
+    {
+        "heroId": 2,
+        "userId": 2,
+        "role": "Tank",
+        "power": 43
+    },
+    {
+        "heroId": 3,
+        "userId": 3,
+        "role": "Fighter",
+        "power": 67
+    },
+    {
+        "heroId": 4,
+        "userId": 4,
+        "role": "Mage",
+        "power": 65
+    },
+    {
+        "heroId": 5,
+        "userId": 1,
+        "role": "Marksman",
+        "power": 98
+    },
+    {
+        "heroId": 6,
+        "userId": 2,
+        "role": "Support",
+        "power": 34
+    },
+    {
+        "heroId": 7,
+        "userId": 3,
+        "role": "Fighter",
+        "power": 56
+    }
+]
