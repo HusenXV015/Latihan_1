@@ -1,59 +1,29 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Toastify from "toastify-js";
-import Card from "../components/Card";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchHeroesAsync } from '../features/heroSlice';  
+import Card from '../components/Card';
 
 export default function Home({ url }) {
-  const [heroes, setHeroes] = useState([]);
-  const navigate = useNavigate()
-
-  async function fetchHeroes() {
-    try {
-      const { data } = await axios.get(`${url}/heroes`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
-
-      setHeroes(data||[]);
-    } catch (error) {
-      console.log(error);
-      Toastify({
-        text: error.response.data.error,
-        duration: 2000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "left",
-        stopOnFocus: true,
-        style: {
-          background: "#EF4C54",
-          color: "#17202A",
-          boxShadow: "0 5px 10px black",
-          fontWeight: "bold",
-        },
-      }).showToast();
-    }
-  }
+  const dispatch = useDispatch();
+  const { heroes, loading, error } = useSelector((state) => state.hero);
 
   useEffect(() => {
-    fetchHeroes();
-  }, []);
+    dispatch(fetchHeroesAsync(url));
+  }, [dispatch, url]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <>
-      <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 class="text-4xl tracking-widest text-white text-center uppercase font-bold">
-          <span class="block">Choose your Hero</span>
-        </h2>
-        <div class="mt-10 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"></div>
-          <main className="grid grid-cols-3 gap-5 px-10 my-8">
-            {heroes.map((hero) => {
-              return <Card key={hero.id} hero={hero} url={url}/>;
-            })}
-          </main>
-      </div>
-    </>
+    <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <h2 className="text-4xl tracking-widest text-white text-center uppercase font-bold">
+        <span className="block">Choose your Hero</span>
+      </h2>
+      <main className="grid grid-cols-3 gap-5 px-10 my-8">
+        {heroes.map((hero) => (
+          <Card key={hero.id} hero={hero} url={url} />
+        ))}
+      </main>
+    </div>
   );
 }
