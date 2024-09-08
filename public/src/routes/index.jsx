@@ -3,6 +3,7 @@ import Toastify from "toastify-js";
 import LoginPage from "../views/LoginPage";
 import BaseLayout from "../views/BaseLayout";
 import Home from "../views/HomePage";
+import Favourite from "../views/FavouritePage";
 
 const url = "http://localhost:3000"
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home url={url}/>
+            },
+            {
+              path: "favourite",
+              element: <Favourite url={url}/>
             }
           ]
     }

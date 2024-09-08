@@ -1,24 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Toastify from "toastify-js";
-import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
+import CardFavorite from "../components/CardFavourites";
 
-export default function Home({ url }) {
-  const [heroes, setHeroes] = useState([]);
-  const navigate = useNavigate()
+export default function Favourite({ url }) {
+  const [favorites, setFavorites] = useState([]);
+  const navigate = useNavigate();
 
-  async function fetchHeroes() {
+  async function fecthFavourite() {
     try {
-      const { data } = await axios.get(`${url}/heroes`, {
+      const { data } = await axios.get(`${url}/favourites`, {
         headers: {
           Authorization: `Bearer ${localStorage.access_token}`,
         },
       });
-
-      setHeroes(data||[]);
+      setFavorites(data || []);
     } catch (error) {
-      console.log(error);
       Toastify({
         text: error.response.data.error,
         duration: 2000,
@@ -36,21 +34,20 @@ export default function Home({ url }) {
       }).showToast();
     }
   }
-
   useEffect(() => {
-    fetchHeroes();
+    fecthFavourite();
   }, []);
 
   return (
     <>
       <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-4xl tracking-widest text-white text-center uppercase font-bold">
-          <span class="block">Choose your Hero</span>
+          <span class="block">Favourites</span>
         </h2>
         <div class="mt-10 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"></div>
-          <main className="grid grid-cols-3 gap-5 px-10 my-8">
-            {heroes.map((hero) => {
-              return <Card key={hero.id} hero={hero} url={url}/>;
+        <main className="grid grid-cols-3 gap-5 px-10 my-8">
+            {favorites.map((favorite) => {
+              return <CardFavorite key={favorite.id} favorite={favorite} hero={favorite.Hero}/>;
             })}
           </main>
       </div>

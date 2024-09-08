@@ -4,7 +4,9 @@ class favouriteController {
   static async getFavourites(req, res, next) {
     try {
       const {userId} = req.loginInfo;
-      const favourites = await Favourite.findAll({userId
+      const favourites = await Favourite.findAll({
+        where: {userId}, 
+        include: Hero 
       });
       res.status(200).json(favourites);
     } catch (err) {
